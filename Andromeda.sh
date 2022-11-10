@@ -9,7 +9,7 @@ then
         echo "Warning: config file might not be supported by this version"
     fi
 else
-    echo "version=0.3" > config.txt; echo "file=zip" >> config.txt; echo "password=dictionary" >> config.txt; echo "ascii_char_length=60" >> config.txt; echo "dictionary_char_length=60" >> config.txt; echo "default_dictionary=true" >> config.txt; echo "dictionary_separator=space" >> config.txt;
+    echo "version=0.4" > config.txt; echo "file=zip" >> config.txt; echo "password=dictionary" >> config.txt; echo "ascii_char_length=60" >> config.txt; echo "dictionary_char_length=60" >> config.txt; echo "default_dictionary=true" >> config.txt; echo "dictionary_separator=space" >> config.txt;
 fi
 
 #Config read
