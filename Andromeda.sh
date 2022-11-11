@@ -1,7 +1,6 @@
 #!/bin/bash
-#Requirements: Bash, Lua, coreutils, zip, unzip
 
-echo "Andromeda Password Manager (version 0.4 dev build 2)"; echo ""
+echo "Andromeda Password Manager (version 0.4 dev build 4)"; echo ""
 if [[ -e config.txt ]]
 then
     if [[ $(cat config.txt) != *"version=0.4"* ]]
@@ -93,4 +92,20 @@ zip -3 -r -q -P "$datapass" "$database.zip" "$database" #Database encryption use
 rm -r "$database"
 databases
 }
-databases
+
+case $1 in
+repair)
+    datacheck=$(cat databases.txt)
+    for i in *
+    do
+        if [[ $i == *".zip"* || $datacheck != *"$i"*  ]]
+        then
+            echo $i >> databases.txt
+        fi
+    done
+    echo "Database information has been fixed"
+;;
+*)
+    databases #Default script execution
+;;
+esac
