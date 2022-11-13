@@ -8,6 +8,8 @@ Besides password management, a Lua script is also included and integrated with t
 ## How to use
 Download Andromeda.sh and (optionally) passgen.lua and execute Andromeda.sh with bash
 
+The configuration is located inside the shell script in the first lines
+
 **Note:** You should always download from the releases, as they are stable versions. Downloading from the repo source will most likely give you dev/testing versions which might have bugs and unstable/unfinished code.
 ## Requirements
 Bash, Lua (5.4 recommended), Zip and Unzip, GNU coreutils or Busybox
