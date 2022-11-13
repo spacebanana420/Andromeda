@@ -3,7 +3,6 @@ choice = {
         chars={}
         password = ""
         charlength = math.floor(tonumber(arg[2]))
-
         for i = 0, charlength-1 do
             chars[i] = string.char(math.random(33, 126))
             password = password .. chars[i]
@@ -15,7 +14,7 @@ choice = {
         randompick={}
         password = ""
         wordlength = math.floor(tonumber(arg[2]))
-        dictionary = io.open("dictionary.txt", "r")
+        dictionary = io.open(arg[3], "r")
         io.input(dictionary)
         a=0
         b=true
@@ -60,27 +59,3 @@ if (choice[arg[1]])
 then
     choice[arg[1]]()
 end
---[[
-chars={}
-password = ""
-print("Character length?")
-charlength = io.read()
-charlength = math.floor(tonumber(charlength))
-
-for i = 0, charlength-1 do
-    chars[i] = string.char(math.random(33, 126))
-    password = password .. chars[i]
-end
-print(password)
-if (charlength < 155)
-then
-    possiblepasswords = math.pow(93, charlength)
-    print("")
-    print("Possible passwords: " .. possiblepasswords)
-    entropy = math.log(possiblepasswords, 2)
-    print("Entropy: " .. entropy .. " bit")
-else
-    print("")
-    print("Entropy: >1000 bit")
-end
---]]
