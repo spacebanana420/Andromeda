@@ -1,28 +1,21 @@
 #!/bin/bash
 
-echo "Andromeda Password Manager (version 0.4 dev build 4)"; echo ""
-if [[ -e config.txt ]]
-then
-    if [[ $(cat config.txt) != *"version=0.4"* ]]
-    then
-        echo "Warning: config file might not be supported by this version"
-    fi
-else
-    echo "version=0.4" > config.txt; echo "file=zip" >> config.txt; echo "password=dictionary" >> config.txt; echo "ascii_char_length=60" >> config.txt; echo "dictionary_char_length=60" >> config.txt; echo "default_dictionary=true" >> config.txt; echo "dictionary_separator=space" >> config.txt;
-fi
+#-----Config-----
+file=zip
+password=dictionary
+password_length=60
+dictionary=dictionary.txt
+dictionary_separator=space
+#----------------
 
-#Config read
-if [[ $(cat config.txt) == *"password=ascii"* ]]
+echo "Andromeda Password Manager (version 1.0 dev build 2)"; echo ""
+
+if [[ $password == "ascii" ]]
 then
     luapass=1
 else
     luapass=2
 fi
-if [[ $(cat config.txt) == *"default_dictionary=true"* ]]
-then
-    defdictionary=dictionary.txt
-fi
-#End of config read
 
 databases(){ #Choose, create and edit databases
 if [[ -e databases.txt  && -e *$(cat databases.txt)* ]]
@@ -50,7 +43,7 @@ else
     read datapass
     if [[ $datapass == "" ]]
     then
-        datapass=$(lua passgen.lua $luapass 60 $defdictionary)
+        datapass=$(lua passgen.lua $luapass $password_length $dictionary)
         echo "A password has been generated for your database:"; echo "$datapass"
     fi
     echo $database > databases.txt
