@@ -8,7 +8,7 @@ dictionary=dictionary.txt
 dictionary_separator=space
 #----------------
 
-echo "Andromeda Password Manager (version 0.5 dev build 2)"; echo ""
+echo "Andromeda Password Manager (version 0.5)"; echo ""
 
 if [[ $password == "ascii" ]]
 then
