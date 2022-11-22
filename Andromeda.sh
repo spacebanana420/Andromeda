@@ -1,14 +1,15 @@
 #!/bin/bash
 
 #-----Config-----
-file=zip
+#encryption=zip (not used yet)
+format_zip=zip
 password=dictionary
 password_length=60
 dictionary=dictionary.txt
 dictionary_separator=space
 #----------------
 
-echo "Andromeda Password Manager (version 0.6 dev build 1)"; echo ""
+echo "Andromeda Password Manager (version 0.6)"; echo ""
 
 if [[ $password == "ascii" ]]
 then
@@ -18,7 +19,7 @@ else
 fi
 
 databases(){ #Choose, create and edit databases
-if [[ -e databases.txt  && -e *"$(cat databases.txt)"* ]]
+if [[ -e databases.txt ]]
 then
     ls *$(cat databases.txt)*; echo ""
     echo "Choose a database or create a new one"
@@ -27,7 +28,7 @@ then
     read -s datapass
     if [[ $(cat databases.txt) == *"$database"* ]]
     then
-        unzip -P "$datapass" "$database.zip"
+        unzip -P "$datapass" "$database.$format_zip"
     else
         echo $database >> databases.txt
         mkdir "$database"
@@ -83,7 +84,7 @@ view)
 esac
 cd ..
 mv ".$database" "$database"
-zip -3 -r -q -P "$datapass" "$database.zip" "$database" #Database encryption uses AES on a zip archive for flexibility and global support
+zip -3 -r -q -P "$datapass" "$database.$format_zip" "$database" #Database encryption uses AES on a zip archive for flexibility and global support
 rm -r "$database"
 databases
 }
