@@ -8,7 +8,7 @@ dictionary=dictionary.txt
 dictionary_separator=space
 #----------------
 
-echo "Andromeda Password Manager (version 0.5)"; echo ""
+echo "Andromeda Password Manager (version 0.6 dev build 1)"; echo ""
 
 if [[ $password == "ascii" ]]
 then
@@ -18,19 +18,20 @@ else
 fi
 
 databases(){ #Choose, create and edit databases
-if [[ -e databases.txt  && -e *$(cat databases.txt)* ]]
+if [[ -e databases.txt  && -e *"$(cat databases.txt)"* ]]
 then
     ls *$(cat databases.txt)*; echo ""
     echo "Choose a database or create a new one"
     read database
     echo "Input database password"
-    read datapass
-    if [[ $database == *$(cat databases.txt)* ]]
+    read -s datapass
+    if [[ $(cat databases.txt) == *"$database"* ]]
     then
-        unzip -P "$datapass" $database.zip
+        unzip -P "$datapass" "$database.zip"
     else
         echo $database >> databases.txt
         mkdir "$database"
+        chmod u=rw,g=rw,o= "$database"
     fi
 else
     echo "No databases found. Give a name for the new database or leave blank for 'database0'"
@@ -48,6 +49,7 @@ else
     fi
     echo $database > databases.txt
     mkdir $database
+    chmod u=rw,g=rw,o= "$database"
 fi
 mv "$database" ".$database"
 cd ".$database"
@@ -66,7 +68,7 @@ add)
         echo "Entry already exists, the password will be changed"
     fi
     echo "Input password"
-    read password; echo $password > $entry
+    read -s password; echo $password > $entry
 ;;
 remove)
     echo "Choose an entry to remove"
@@ -99,6 +101,11 @@ repair)
     echo "Database information has been fixed"
 ;;
 *)
-    databases #Default script execution
+    if [[ $(id -u) == "0" ]]
+    then
+        databases #Default script execution
+    else
+        echo "You need to run this script as root for a safer handling of databases."
+    fi
 ;;
 esac
