@@ -2,8 +2,8 @@
 
 #-----Config-----
 #encryption=zip (not used yet)
-format_zip=zip
-password=dictionary
+format_zip=zip #zip file extension
+password=dictionary #Password generation type (ascii or dictionary)
 password_length=60
 dictionary=dictionary.txt
 dictionary_separator=space
@@ -22,7 +22,7 @@ databases(){ #Choose, create and edit databases
 if [[ -e databases.txt ]]
 then
     ls *$(cat databases.txt)*; echo ""
-    echo "Choose a database or create a new one"
+    echo "-----Choose a database or create a new one-----"
     read database
     echo "Input database password"
     read -s datapass
@@ -32,7 +32,6 @@ then
     else
         echo $database >> databases.txt
         mkdir "$database"
-        chmod u=rw,g=rw,o= "$database"
     fi
 else
     echo "No databases found. Give a name for the new database or leave blank for 'database0'"
@@ -45,23 +44,25 @@ else
     read -s datapass
     if [[ $datapass == "" ]]
     then
-        datapass=$(lua passgen.lua $luapass $password_length $dictionary)
+        datapass=$(lua passgen.lua $luapass $password_length $password)
         echo "A password has been generated for your database:"; echo "$datapass"
     fi
     echo $database > databases.txt
     mkdir $database
-    chmod u=rw,g=rw,o= "$database"
 fi
+chmod u=rw,g=rw,o= "$database"
+chown root:root "$database"
 mv "$database" ".$database"
 cd ".$database"
 readdatabase
 }
 
 readdatabase() { #Manage the stored passwords in the database
-ls; echo ""; echo "Choose an action"; echo "add  remove  view"
+ls; echo ""; echo "-----Choose an action-----"; echo "add  remove  view"
 read action
 case $action in
 add)
+    echo ""
     echo "Give a name for this password entry"
     read entry
     if [[ -e $entry ]]
@@ -80,6 +81,7 @@ view)
     do
         echo $i ": " $(cat $i)
     done
+    echo ""
 ;;
 esac
 cd ..
