@@ -2,14 +2,14 @@
 
 #-----Config-----
 #encryption=zip (not used yet)
-format_zip=zip #zip file extension
+format_zip=andromeda #zip file extension
 password=dictionary #Password generation type (ascii or dictionary)
 password_length=60
 dictionary=dictionary.txt
 dictionary_separator=space
 #----------------
 
-echo "Andromeda Password Manager (version 0.6.1)"; echo ""
+echo "Andromeda Password Manager (version 0.7)"; echo ""
 
 if [[ $password == "ascii" ]]
 then
@@ -84,11 +84,16 @@ view)
     echo ""
 ;;
 esac
-cd ..
-mv ".$database" "$database"
-zip -3 -r -q -P "$datapass" "$database.$format_zip" "$database" #Database encryption uses AES on a zip archive for flexibility and global support
-rm -r "$database"
-databases
+if [[ $action == "add" || $action == "remove" || $action == "view" ]]
+then
+    readdatabase
+else
+    cd ..
+    mv ".$database" "$database"
+    zip -3 -r -q -P "$datapass" "$database.$format_zip" "$database" #Database encryption uses AES on a zip archive for flexibility and global support
+    rm -r "$database"
+    databases
+fi
 }
 
 case $1 in
@@ -104,10 +109,8 @@ repair)
     echo "Database information has been fixed"
 ;;
 *)
-    if [[ $(id -u) == "0" ]]
+    if [[ $(id -u) != "0" ]]
     then
-        databases #Default script execution
-    else
         echo "You need to run this script as root for a safer handling of databases."
     fi
 ;;
