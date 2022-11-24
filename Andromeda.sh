@@ -9,7 +9,7 @@ dictionary=dictionary.txt
 dictionary_separator=space
 #----------------
 
-echo "Andromeda Password Manager (version 0.6)"; echo ""
+echo "Andromeda Password Manager (version 0.6.1)"; echo ""
 
 if [[ $password == "ascii" ]]
 then
@@ -42,7 +42,7 @@ else
         database="database0"
     fi
     echo "Give a password for the database or leave blank for autogeneration"
-    read datapass
+    read -s datapass
     if [[ $datapass == "" ]]
     then
         datapass=$(lua passgen.lua $luapass $password_length $dictionary)
