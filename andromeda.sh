@@ -99,7 +99,7 @@ then
 else
     cd ..
     mv ".$database" "$database"
-    zip -3 -r -q -P "$datapass" "$database.$format_zip" "$database" #Database encryption uses AES on a zip archive for flexibility and global support
+    zip -2 -r -q -P "$datapass" "$database.$format_zip" "$database" #Database encryption uses AES on a zip archive for flexibility and global support
     rm -r "$database"
     databases
 fi
