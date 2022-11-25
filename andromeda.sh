@@ -10,11 +10,18 @@ dictionary=dictionary.txt
 #----------------
 
 databases(){ #Choose, create and edit databases
-echo ""; if [ -e *".$format_zip"* ]; then ls *".$format_zip"*
+echo ""; if [ -e *".$format_zip"* ]; then ls *".$format_zip"*;
 echo "-----------------------------------"; echo "Choose a database, create a new one or type 'exit'"; else echo "Create a new database or type 'exit'"; fi
 read database
-if [[ $database == "exit" ]] then return;
-elif [[ $database == *".$format_zip"* ]]; then database=$(basename "$database" ".$format_zip"); fi
+
+if [[ $database == "exit" ]]
+then
+    return;
+elif [[ $database == *".$format_zip"* ]]
+then
+    database=$(basename "$database" ".$format_zip")
+fi
+
 echo ""; echo "Input database password or leave blank to autogenerate"
 read -s datapass
 if [[ $datapass == "" ]]
@@ -23,6 +30,7 @@ then
     echo $datapass > masterkey.txt
     echo "The generated master password for this database has been stored on masterkey.txt, don't forget this password"
 fi
+
 if [[ -e "$database.$format_zip" ]]
 then
     unzip -P "$datapass" "$database.$format_zip"
@@ -42,7 +50,7 @@ readdatabase
 }
 
 readdatabase() { #Manage the stored passwords in the database
-if [ -e * ]; then echo ""; ls; echo "-----------------------------------"; fi; echo ""; echo "-----Choose an action or leave blank to exit-----"; echo "add  remove  view"
+if [ -e * -a $1 != "repeat" ]; then echo ""; ls; echo "-----------------------------------"; fi; echo ""; echo "-----Choose an action or leave blank to exit-----"; echo "add  remove  view"
 read action
 case $action in
 add)
@@ -72,16 +80,22 @@ remove)
     fi
 ;;
 view)
+    echo "Show passwords? (y/n)"; read showpass
     for i in *
     do
-        echo $i ": " $(cat "$i")
+        if [[ $showpass == "y" ]]
+        then
+            echo $i ": " $(cat "$i")
+        else
+            echo $i
+        fi
     done
     echo ""
 ;;
 esac
 if [[ $action == "add" || $action == "remove" || $action == "view" ]]
 then
-    readdatabase
+    readdatabase repeat
 else
     cd ..
     mv ".$database" "$database"
