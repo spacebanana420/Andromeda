@@ -10,7 +10,7 @@ dictionary=dictionary.txt
 #----------------
 
 databases(){ #Choose, create and edit databases
-echo ""; if [ -e *".$format_zip"* ]; then ls *".$format_zip"*;
+echo ""; if [[ $(ls *".$format_zip"*) != "" ]]; then ls *".$format_zip"*
 echo "-----------------------------------"; echo "Choose a database, create a new one or type 'exit'"; else echo "Create a new database or type 'exit'"; fi
 read database
 
