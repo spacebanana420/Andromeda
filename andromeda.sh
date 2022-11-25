@@ -14,9 +14,15 @@ echo ""; ls *".$format_zip"*;
 echo "-----------------------------------";
 echo "Choose a database or create a new one"
 read database
-echo "Input database password"
+echo "Input database password or leave blank to autogenerate"
 read -s datapass
-if [[ -e *"$database.$format_zip"* ]]
+if [[ $datapass == "" ]]
+then
+    datapass=$(lua passgen.lua $luapass $password_length "$dictionary")
+    echo $datapass > masterkey.txt
+    echo "The generated master password for this database has been stored on masterkey.txt, don't forget this password"
+fi
+if [[ -e "$database.$format_zip" ]]
 then
     unzip -P "$datapass" "$database.$format_zip"
 else
@@ -40,23 +46,34 @@ read action
 case $action in
 add)
     echo ""
-    echo "Give a name for this password entry"
+    echo "Give a name for this password entry or leave blank to autogenerate"
     read entry
     if [[ -e $entry ]]
     then
         echo "Entry already exists, the password will be changed"
     fi
     echo "Input password"
-    read -s password; echo $password > $entry
+    read -s password
+    if [[ $password == "" ]]
+    then
+        password=$(lua passgen.lua $luapass $password_length "$dictionary")
+    fi
+    echo $password > $entry
 ;;
 remove)
     echo "Choose an entry to remove"
     read entry
+    echo "Are you sure you want to remove the password entry '$entry'? (y/n)"
+    read confirm
+    if [[ $confirm == "y" ]]
+    then
+        rm $entry
+    fi
 ;;
 view)
     for i in *
     do
-        echo $i ": " $(cat $i)
+        echo $i ": " $(cat "$i")
     done
     echo ""
 ;;
