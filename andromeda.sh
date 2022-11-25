@@ -10,9 +10,8 @@ dictionary_separator=space
 #----------------
 
 databases(){ #Choose, create and edit databases
-echo ""; ls *".$format_zip"*;
-echo "-----------------------------------";
-echo "Choose a database or create a new one"
+echo ""; if [ -e *".$format_zip"* ]; then ls *".$format_zip"*
+echo "-----------------------------------"; echo "Choose a database or create a new one"; else echo "Create a new database"; fi
 read database
 echo "Input database password or leave blank to autogenerate"
 read -s datapass
