@@ -6,7 +6,7 @@ Andromeda uses symmetric AES encryption for its databases, stored in zip archive
 Besides password management, a Lua script is also included and integrated with the main shell script to generate passwords based on either the ASCII table or a keyword dictionary
 
 ## How to use
-Download Andromeda.sh and (optionally) passgen.lua and execute Andromeda.sh with bash
+Download andromeda.sh and (optionally) passgen.lua and execute andromeda.sh with bash
 
 The configuration is located inside the main script
 
