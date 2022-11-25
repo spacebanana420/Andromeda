@@ -40,7 +40,7 @@ readdatabase
 }
 
 readdatabase() { #Manage the stored passwords in the database
-ls; echo ""; echo "-----Choose an action or leave blank to exit-----"; echo "add  remove  view"
+if [ -e * ]; then echo ""; ls; echo "-----------------------------------"; fi; echo ""; echo "-----Choose an action or leave blank to exit-----"; echo "add  remove  view"
 read action
 case $action in
 add)
