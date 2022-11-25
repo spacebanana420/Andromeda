@@ -11,10 +11,11 @@ dictionary=dictionary.txt
 
 databases(){ #Choose, create and edit databases
 echo ""; if [ -e *".$format_zip"* ]; then ls *".$format_zip"*
-echo "-----------------------------------"; echo "Choose a database or create a new one"; else echo "Create a new database"; fi
+echo "-----------------------------------"; echo "Choose a database, create a new one or type 'exit'"; else echo "Create a new database or type 'exit'"; fi
 read database
-if [[ $database == *".$format_zip"* ]]; then database=$(basename "$database" ".$format_zip"); fi
-echo "Input database password or leave blank to autogenerate"
+if [[ $database == "exit" ]] then return;
+elif [[ $database == *".$format_zip"* ]]; then database=$(basename "$database" ".$format_zip"); fi
+echo ""; echo "Input database password or leave blank to autogenerate"
 read -s datapass
 if [[ $datapass == "" ]]
 then
