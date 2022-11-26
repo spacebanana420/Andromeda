@@ -36,9 +36,14 @@ The configuration is located inside the main script
 
 Supported systems
 ----------
-This project was written with Linux in mind, however it might still work on other operative systems as long as you can install and use the required dependencies
+This project was written with mainstream Linux in mind, however it will work on any system as long as you can get the required dependencies
 
-(In the future I will test Andromeda for Alpine Linux and FreeBSD. If you are able to test Andromeda on MacOS or other BSD-based systems, please contact me at tomasbessa@protonmail.com)
+Officially supported systems:
+* Debian Linux and derivatives (Ubuntu, Mint, etc)
+* Arch Linux and derivatives (EndeavourOS, Manjaro, etc)
+* RHEL, Fedora Linux and derivatives
+
+(I am testing Andromeda for Alpine Linux and FreeBSD. If you are able to test Andromeda on MacOS or other BSD-based systems besides FreeBSD, please contact me at tomasbessa@protonmail.com)
 
 Requirements
 ----------------------
