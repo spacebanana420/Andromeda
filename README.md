@@ -8,15 +8,15 @@ Besides password management, a Lua script is also included and integrated with t
 
 Features
 --------
-Password and database management
+* Password and database management
 
-AES encryption for databases
+* AES encryption for databases
 
-zip deflate compression
+* zip deflate compression
 
-Muliple database support
+* Muliple database support
 
-Password entries
+* Password entries
 
 Downloads
 ---------
@@ -32,12 +32,11 @@ The configuration is located inside the main script
 
 **Note:** You should always download from the releases, as they are stable versions. Downloading from the repo source will most likely give you dev/testing versions which might have bugs and unstable/unfinished code.
 
-Requirements
+Supported systems
 ----------
 This project was written with Linux and BSD-based systems in mind, however it might still work on other operative systems as long as you can use the required dependencies
 
-(In the future I will test Andromeda for Alpine Linux and FreeBSD. If you are able to test Andromeda on MacOS or BSD-based systems, please contact me at tomasbessa@protonmail.com
-)
+(In the future I will test Andromeda for Alpine Linux and FreeBSD. If you are able to test Andromeda on MacOS or BSD-based systems, please contact me at tomasbessa@protonmail.com)
 
 Requirements
 ----------------------
