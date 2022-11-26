@@ -2,9 +2,11 @@ Andromeda
 ====
 The Andromeda Password Manager is a CLI password manager utility made for Linux and BSD-based systems
 
-Andromeda uses symmetric AES encryption for its databases, stored in zip archives for flexibility. This utility is meant for a lighter and less serious use, it does not replace the complexity and security of commonly used password managers, although newer versions are starting to become secure and reliable enough for serious use
+Andromeda uses symmetric AES encryption for its databases, stored in zip archives for flexibility.
 
 Besides password management, a Lua script is also included and integrated with the main shell script to generate passwords based on either the ASCII table or a keyword dictionary
+
+This program is still very fresh. You might encounter bugs and notice the lack of special features, although the amount of bugs has been severely reduced 
 
 Features
 --------
