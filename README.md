@@ -8,12 +8,21 @@ Besides password management, a Lua script is also included and integrated with t
 
 Features
 --------
-write features here lolololollololololol
+Password and database management
+
+AES encryption for databases
+
+zip deflate compression
+
+Muliple database support
+
+Password entries
 
 Downloads
 ---------
+Grab the stable releases [here](https://github.com/spacebanana420/Andromeda/releases)
 
-Grab the stable releases [here](https://github.com/spacebanana420/Andromeda/releases). But you can also get the developpement build from the repository.
+But you can also get the developpement build from the repository.
 
 How to use
 ----------
@@ -25,22 +34,18 @@ The configuration is located inside the main script
 
 Requirements
 ----------
-This project was written with Linux/FreeBSD in mind, however it might still work on other OSes with help of some external tools.
+This project was written with Linux and BSD-based systems in mind, however it might still work on other operative systems as long as you can use the required dependencies
 
 (In the future I will test Andromeda for Alpine Linux and FreeBSD. If you are able to test Andromeda on MacOS or BSD-based systems, please contact me at tomasbessa@protonmail.com
 )
 
-Libraries Requirements
+Requirements
 ----------------------
 * Bash
-* Lua (only tested with 5.4!)
-* zip/unzip
+* Lua (only tested with 5.4)
+* zip and unzip
 * GNU Core Utilities / Busybox
 
 License
 -------
 This project uses the [MIT](./license.md) license.
-
-Copyright
----------
-Space Banana - Tomas Bessa whatever write it yourself lmao
