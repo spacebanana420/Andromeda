@@ -3,15 +3,26 @@
 #-----Config-----
 #encryption=zip (not used yet)
 format_zip=andromeda #zip file extension
-password=dictionary #Password generation type (ascii or dictionary)
+password=ascii #Password generation type (ascii or dictionary)
 password_length=60
 dictionary=dictionary.txt
 #dictionary_separator=space (not used yet)
 #----------------
 
 databases(){ #Choose, create and edit databases
-echo ""; if [[ $(ls *".$format_zip"*) != "" ]]; then ls *".$format_zip"*
-echo "-----------------------------------"; echo "Choose a database, create a new one or type 'exit'"; else echo "Create a new database or type 'exit'"; fi
+echo ""
+for i in *
+do
+    if [[ $i == *".$format_zip"* ]]; then ls $i; datapresent=1; fi
+done
+
+if [[ $datapresent == 1 ]]
+then
+    echo "-------------------------------"
+    echo "Choose a database, create a new one or type 'exit'"
+else
+    echo "Type th name for a new database or type 'exit'"
+fi
 read database
 
 if [[ $database == "exit" ]]
@@ -26,7 +37,13 @@ echo ""; echo "Input database password or leave blank to autogenerate"
 read -s datapass
 if [[ $datapass == "" ]]
 then
-    datapass=$(lua passgen.lua $luapass $password_length "$dictionary")
+    if [[ -e $dictionary ]]
+    then
+        datapass=$(lua passgen.lua $luapass $password_length "$dictionary")
+    else
+        datapass=$(lua passgen.lua 1 $password_length)
+        if [[ $luapass == 2 ]]; then echo "Dictionary $dictionary not found. Using ASCII generation instead"; fi
+    fi
     echo $datapass > masterkey.txt
     echo "The generated master password for this database has been stored on masterkey.txt, don't forget this password"
 fi
@@ -101,12 +118,13 @@ else
     mv ".$database" "$database"
     zip -2 -r -q -P "$datapass" "$database.$format_zip" "$database" #Database encryption uses AES on a zip archive for flexibility and global support
     rm -r "$database"
+    clear
     databases
 fi
 }
 
 #Start
-echo "Andromeda Password Manager (version 1.0)";
+echo "Andromeda Password Manager (version 1.1)";
 
 if [[ $password == "ascii" ]]
 then
