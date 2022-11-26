@@ -13,3 +13,5 @@ The configuration is located inside the main script
 **Note:** You should always download from the releases, as they are stable versions. Downloading from the repo source will most likely give you dev/testing versions which might have bugs and unstable/unfinished code.
 ## Requirements
 Bash, Lua (5.4 recommended), zip and unzip, GNU coreutils or Busybox
+
+In the future I will test Andromeda for Alpine Linux and FreeBSD. If you are able to test Andromeda on MacOS or BSD-based systems, please contact me at tomasbessa@protonmail.com
