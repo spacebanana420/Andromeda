@@ -47,6 +47,13 @@ Requirements
 * zip and unzip
 * GNU Core Utilities / Busybox
 
+#### Installing dependencies
+Debian: ``` apt install lua5.4 zip unzip ```
+
+Alpine Linux: ``` apk add lua5.4 zip unzip bash ```
+
+FreeBSD: ``` pkg install lua54 zip unzip bash ```
+
 License
 -------
 This project uses the [MIT](./license.md) license.
