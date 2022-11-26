@@ -22,7 +22,7 @@ Downloads
 ---------
 Grab the stable releases [here](https://github.com/spacebanana420/Andromeda/releases)
 
-But you can also get the developpement build from the repository.
+But you can also get the testing build from the repository.
 
 How to use
 ----------
