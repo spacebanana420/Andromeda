@@ -10,6 +10,10 @@ choice = {
         print(password)
     end,
     ["2"] = function() --Dictionary password: arg 2 is keyword length, arg 3 is dictionary text file
+        if (arg[3] == nil)
+        then
+            return
+        end
         keywords={}
         randompick={}
         password = ""
