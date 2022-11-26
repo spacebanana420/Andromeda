@@ -47,10 +47,10 @@ then
     echo $datapass > masterkey.txt
     echo "The generated master password for this database has been stored on masterkey.txt, don't forget this password"
 fi
-
+if [[ -e ".$database" ]]; then rm -r ".$database"; fi
 if [[ -e "$database.$format_zip" ]]
 then
-    unzip -P "$datapass" "$database.$format_zip"
+    unzip -q -P "$datapass" "$database.$format_zip"
 else
     mkdir "$database"
 fi
@@ -67,7 +67,7 @@ readdatabase
 }
 
 readdatabase() { #Manage the stored passwords in the database
-if [ -e * -a $1 != "repeat" ]; then echo ""; ls; echo "-----------------------------------"; fi; echo ""; echo "-----Choose an action or leave blank to exit-----"; echo "add  remove  view"
+echo ""; ls; echo "-----------------------------------"; echo ""; echo "-----Choose an action or leave blank to exit-----"; echo "add  remove  view"
 read action
 case $action in
 add)
