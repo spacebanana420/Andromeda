@@ -16,7 +16,7 @@ Features
 
 * Muliple database support
 
-* Password entries
+* Multiple password entries per database
 
 Downloads
 ---------
