@@ -55,7 +55,7 @@ Requirements
 * Bash
 * Lua (only tested with 5.4)
 * zip and unzip
-* GNU Core Utilities / Busybox
+* GNU coreutils / Busybox
 
 #### Installing dependencies
 Debian: ``` apt install lua5.4 zip unzip ```
