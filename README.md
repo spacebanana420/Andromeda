@@ -20,6 +20,10 @@ Features
 
 * Multiple password entries per database
 
+* Custom database file extension
+
+* ASCII and dictionary-based password generation with custom length
+
 Downloads
 ---------
 Grab the stable releases [here](https://github.com/spacebanana420/Andromeda/releases)
