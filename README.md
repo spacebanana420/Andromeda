@@ -41,6 +41,7 @@ This project was written with mainstream Linux in mind, however it will work on 
 Officially supported systems:
 * Debian Linux and derivatives (Ubuntu, Mint, etc)
 * Arch Linux and derivatives (EndeavourOS, Manjaro, etc)
+* Fedora Linux
 * FreeBSD
 
 (I am testing Andromeda for Alpine Linux and FreeBSD. If you are able to test Andromeda on MacOS or other BSD-based systems besides FreeBSD, please contact me at tomasbessa@protonmail.com)
@@ -54,6 +55,8 @@ Requirements
 
 #### Installing dependencies
 Debian: ``` apt install lua5.4 zip unzip ```
+
+Fedora: ``` dnf install lua zip unzip ```
 
 Alpine Linux: ``` apk add lua5.4 zip unzip bash ```
 
