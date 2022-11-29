@@ -46,9 +46,10 @@ Officially supported systems:
 * Debian Linux and derivatives (Ubuntu, Mint, etc)
 * Arch Linux and derivatives (EndeavourOS, Manjaro, etc)
 * Fedora Linux
+* Alpine Linux
 * FreeBSD
 
-(I am testing Andromeda for Alpine Linux and FreeBSD. If you are able to test Andromeda on MacOS or other BSD-based systems besides FreeBSD, please contact me at tomasbessa@protonmail.com)
+*If you are able to test Andromeda on MacOS or other BSD-based systems besides FreeBSD, please contact me at tomasbessa@protonmail.com*
 
 Requirements
 ----------------------
