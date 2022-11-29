@@ -125,7 +125,7 @@ fi
 }
 
 #Start
-echo "Andromeda Password Manager (version 1.1)";
+echo "Andromeda Password Manager (version 1.1.1)";
 
 if [[ $password == "ascii" ]]
 then
