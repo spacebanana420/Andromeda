@@ -65,6 +65,8 @@ Alpine Linux: ``` apk add lua5.4 zip unzip bash ```
 
 FreeBSD: ``` pkg install lua54 zip unzip bash ```
 
+Bash comes preinstalled on most Linux systems
+
 License
 -------
 This project uses the [MIT](./license.md) license.
