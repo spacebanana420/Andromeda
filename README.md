@@ -40,7 +40,7 @@ The configuration is located inside the main script
 
 Supported systems
 ----------
-This project was written with mainstream Linux in mind, however it will work on any system as long as you can get the required dependencies. The script requires the GNU coreutils, busybox utils or the "BSD coreutils" seen in FreeBSD or similar.
+This project was written with Linux in mind, however it will work on any system as long as you can get the required dependencies. The script requires the GNU coreutils, busybox utils or the "BSD coreutils" seen in FreeBSD or similar.
 
 Officially supported systems:
 * Debian Linux and derivatives (Ubuntu, Mint, etc)
