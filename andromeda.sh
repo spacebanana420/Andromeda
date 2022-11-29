@@ -6,6 +6,7 @@ format_zip=andromeda #zip file extension
 password=ascii #Password generation type (ascii or dictionary)
 password_length=60
 dictionary=dictionary.txt
+datafolder="" #If not empty, Andromeda will search for databases inside this folder instead of the current directory
 #dictionary_separator=space (not used yet)
 #----------------
 
@@ -137,4 +138,7 @@ if [[ $(id -u) != "0" ]]
 then
     echo "For the safety of database extraction you should run this script as root"
 fi
+
+if [[ $datafolder != "" && -d $datafolder ]]; then cd "$datafolder"; fi
+
 databases
