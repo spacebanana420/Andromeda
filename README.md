@@ -60,6 +60,8 @@ Requirements
 #### Installing dependencies
 Debian: ``` apt install lua5.4 zip unzip ```
 
+Arch Linux: ``` pacman -S lua zip unzip ```
+
 Fedora: ``` dnf install lua zip unzip ```
 
 Alpine Linux: ``` apk add lua5.4 zip unzip bash ```
