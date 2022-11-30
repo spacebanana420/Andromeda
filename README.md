@@ -46,6 +46,7 @@ Officially supported systems:
 * Debian Linux and derivatives (Ubuntu, Mint, etc)
 * Arch Linux and derivatives (EndeavourOS, Manjaro, etc)
 * Fedora Linux
+* Void Linux
 * Alpine Linux
 * FreeBSD
 
@@ -63,6 +64,8 @@ Debian: ``` apt install lua5.4 zip unzip ```
 Arch Linux: ``` pacman -S lua zip unzip ```
 
 Fedora: ``` dnf install lua zip unzip ```
+
+Void: ``` xbps-install lua54 zip unzip ```
 
 Alpine Linux: ``` apk add lua5.4 zip unzip bash ```
 
