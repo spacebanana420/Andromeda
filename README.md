@@ -40,7 +40,7 @@ The configuration is located inside the main script
 
 Supported systems
 ----------
-This project was written with Linux in mind, however it will work on any system as long as you can get the required dependencies. For basic utilities like "ls", "basename" or "cp", the script requires the GNU coreutils, busybox utils or the "BSD coreutils" seen in FreeBSD or similar.
+This project was written with Linux in mind and is certain to work on any Linux system with a repository that isn't decades old, however it will also work on any system as long as you can get the required dependencies. For basic utilities like "ls", "basename" or "cp", the script requires the GNU coreutils, busybox utils, the "BSD coreutils" seen in FreeBSD or similar core system utilities.
 
 Officially supported systems:
 * Debian Linux and derivatives (Ubuntu, Mint, etc)
