@@ -45,6 +45,7 @@ This project was written with Linux in mind and is certain to work on any Linux 
 Officially supported systems:
 * Debian Linux and derivatives (Ubuntu, Mint, etc)
 * Arch Linux and derivatives (EndeavourOS, Manjaro, etc)
+* RHEL, CentOS, Alma Linux and other systems based on RHEL
 * Fedora Linux
 * Void Linux
 * Alpine Linux
@@ -64,6 +65,8 @@ Debian: ``` apt install lua5.4 zip unzip ```
 Arch Linux: ``` pacman -S lua zip unzip ```
 
 Fedora: ``` dnf install lua zip unzip ```
+
+Alma Linux: ``` dnf install lua zip unzip ``` or ``` yum install lua zip unzip ```
 
 Void: ``` xbps-install lua54 zip unzip ```
 
